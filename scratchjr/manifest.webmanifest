@@ -3,10 +3,10 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "display_override": ["window-controls-overlay"],
-    "description": "高质量编程学习与培训内容就在可好玩乐青少年编程平台",
+    "description": " WEB סקראץ ג'וניור גרסת ",
     "scope": "/",
     "start_url": "/",
-    "name": "ScratchJr - 可好玩乐编程",
+    "name": "ScratchJr - תכנות מהנה",
     "short_name": "ScratchJr",
     "icons": [
         {
