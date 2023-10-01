@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google Login</title>
+  <title>Google OAuth Login</title>
   <script src="https://apis.google.com/js/platform.js"></script>
   <script>
     function onSignIn(googleUser) {
-      // Handle the successful sign-in here.
+      // Get the user's email address.
+      var email = googleUser.getBasicProfile().getEmail();
+
+      // Redirect the user to the dashboard page.
+      window.location.href = "/dashboard?email=" + email;
     }
 
     // Initialize the GoogleAuth object.
@@ -14,15 +18,15 @@
         client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com'
       });
     });
+
+    // Sign in the user.
+    function signIn() {
+      gapi.auth2.getAuthInstance().signIn();
+    }
   </script>
 </head>
 <body>
-  <h1>Google Login</h1>
-
-  <div class="g_id_signin"
-    data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
-    data-callback="onSignIn"
-    data-theme="dark">
-  </div>
+  test
+  <button onclick="signIn()">Sign in with Google</button>
 </body>
 </html>
