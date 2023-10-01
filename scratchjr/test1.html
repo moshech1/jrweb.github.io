@@ -4,6 +4,7 @@
   <title>Google SSO Login</title>
   <script src="https://apis.google.com/js/platform.js"></script>
   <script>
+
     function onSignIn(googleUser) {
       // Handle the successful sign-in here.
     }
@@ -15,39 +16,28 @@
       });
     });
   </script>
-  <scripts>
-function onSignIn(googleUser) {
-  // Get the user's ID token.
-  var id_token = googleUser.getAuthResponse().id_token;
-
-  // Send the ID token to your server to authenticate the user.
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/auth/google');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({
-    id_token: id_token
-  }));
-
-  // If the user is successfully authenticated, redirect them to the protected page.
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      window.location.href = '/protected';
-    } else {
-      // Handle the authentication failure.
-    }
-  };
-
-    
-  </scripts>
 </head>
 <body>
-  <h1>Google mos Login</h1>
+  <h1>Google SSO Login</h1>
 
   <div class="g_id_signin"
-    data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
+    data-client_id="YOUR_CLIENT_ID"
     data-callback="onSignIn"
     data-theme="dark">
   </div>
+  <script>
+    function onSignIn(googleUser) {
+      // Handle the successful sign-in here.
+    }
+
+    // Initialize the GoogleAuth object.
+    gapi.load('auth2', function() {
+      gapi.auth2.init({
+        client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com'
+      });
+    });
+  </script>
+  
   
 </body>
 </html>
