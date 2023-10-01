@@ -1,45 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google SS OLogin Example</title>
-  <!-- Include the Google Sign-In API script -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <!-- Specify your client ID -->
-  <meta name="google-signin-client_id" content="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com">
-  <!-- Add the script for handling the login process -->
-  <script>
-    // Callback function that gets called after a successful sign-in
-    function onSignIn(googleUser) {
-      // Get user information
-      var profile = googleUser.getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
-
-      // You can now use the user information as needed
-      // For example, send the user's email to your server for authentication
-      // or perform other actions based on the user's profile.
-    }
-
-    // Function to handle sign-out
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-      });
-    }
-  </script>
+  <title>[Google](https://www.google.com/search?q=Google) SSO Login</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-  <h1>Google SSO Login Example</h1>
-
-  <!-- Google Sign-In button -->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-  <!-- Button to sign out -->
-  <button onclick="signOut()">Sign out</button>
+  <h1>[Google](https://www.google.com/search?q=Google) SSO Login</h1>
+  <div id="g_id_onload"
+       data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse">
+  </div>
+  <script>
+    function handleCredentialResponse(response) {
+      // Handle the response from [Google](https://www.google.com/search?q=Google) Sign-In API
+      if (response.credential) {
+        // User is signed in, you can retrieve the ID token
+        var id_token = response.credential;
+        // Send the ID token to your server for verification
+        // ...
+      } else {
+        // User is not signed in, handle the sign-in flow
+        // ...
+      }
+    }
+  </script>
 </body>
-</html
+</html>
