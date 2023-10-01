@@ -1,9 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  ...
-  <meta name="google-signin-client_id" content="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Sign-In Example</title>
+  <!-- Include the Google Sign-In API script -->
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Specify your client ID -->
+  <meta name="google-signin-client_id" content="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com">
 </head>
 <body>
-  <h1>Welcome to the Demo</h1>
-  <div class="g-signin2"></div>
+  <h1>Google Sign-In Example</h1>
+  
+  <!-- Google Sign-In button -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+  <script>
+    // Callback function that gets called after a successful sign-in
+    function onSignIn(googleUser) {
+      // Get user information
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+      
+      // You can now use the user information as needed
+      // For example, send the user's email to your server for authentication
+      // or perform other actions based on the user's profile.
+    }
+  </script>
 </body>
+</html>
