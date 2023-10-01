@@ -8,13 +8,7 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!-- Specify your client ID -->
   <meta name="google-signin-client_id" content="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com">
-</head>
-<body>
-  <h1>Google OAuth Login Example</h1>
-  
-  <!-- Google Sign-In button -->
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
+  <!-- Add the script for handling the login process -->
   <script>
     // Callback function that gets called after a successful sign-in
     function onSignIn(googleUser) {
@@ -29,6 +23,24 @@
       // For example, send the user's email to your server for authentication
       // or perform other actions based on the user's profile.
     }
+
+    // Function to sign out the user
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
   </script>
+</head>
+<body>
+  <h1>Google OAuth Login Example</h1>
+  
+  <!-- Google Sign-In button -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+  <!-- Button to sign out -->
+  <button onclick="signOut()">Sign out</button>
 </body>
 </html>
+
