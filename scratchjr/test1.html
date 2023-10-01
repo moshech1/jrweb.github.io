@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html>
-<script>
-  function onSignIn(googleUser) {
-  // Get the user's profile information.
-  var profile = googleUser.getBasicProfile();
-
-  // Display the user's name and email address.
-  document.getElementById('name').innerHTML = profile.getName();
-  document.getElementById('email').innerHTML = profile.getEmail();
-}
-  </script> 
-  <head>
-  <title>Google Login System</title>
+<head>
+  <title>Google Login</title>
   <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 <body>
-  <div class="g_id_signin"
-    data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
-    data-callback="onSignIn"
-    data-theme="dark">
-  </div>
+  <div id="g-signin2"></div>
 
   <script>
     function onSignIn(googleUser) {
       // Handle the successful sign-in here.
     }
 
-    // Initialize the GoogleAuth object.
     gapi.load('auth2', function() {
       gapi.auth2.init({
         client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com'
       });
+
+      gapi.auth2.attachClickHandler('g-signin2', {}, onSignIn, 'popup');
     });
   </script>
-
-
 </body>
 </html>
