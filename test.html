@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>[Google](https://www.google.com/search?q=Google) SSO Login</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <h1>[Google](https://www.google.com/search?q=Google) SSO Login</h1>
+  <div id="g_id_onload"
+       data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse">
+  </div>
+  <script>
+    function handleCredentialResponse(response) {
+      // Handle the response from [Google](https://www.google.com/search?q=Google) Sign-In API
+      if (response.credential) {
+        // User is signed in, you can retrieve the ID token
+        var id_token = response.credential;
+        // Send the ID token to your server for verification
+        // ...
+      } else {
+        // User is not signed in, handle the sign-in flow
+        // ...
+      }
+    }
+  </script>
+</body>
+</html>
