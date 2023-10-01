@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Google SSO Login</title>
-  <script src="https://apis.google.com/js/platform.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google SSO Login Example</title>
+  <!-- Include the Google Sign-In API script -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Specify your client ID -->
+  <meta name="google-signin-client_id" content="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com">
+  <!-- Add the script for handling the login process -->
   <script>
-
+    // Callback function that gets called after a successful sign-in
     function onSignIn(googleUser) {
-      // Handle the successful sign-in here.
+      // Get user information
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+
+      // You can now use the user information as needed
+      // For example, send the user's email to your server for authentication
+      // or perform other actions based on the user's profile.
     }
 
-    // Initialize the GoogleAuth object.
-    gapi.load('auth2', function() {
-      gapi.auth2.init({
-        client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com'
+    // Function to handle sign-out
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
       });
-    });
+    }
   </script>
 </head>
 <body>
-  <h1>Google SSO Login</h1>
+  <h1>Google SSO Login Example</h1>
 
-  <div class="g_id_signin"
-    data-client_id="YOUR_CLIENT_ID"
-    data-callback="onSignIn"
-    data-theme="dark">
-  </div>
-  <script>
-    function onSignIn(googleUser) {
-      // Handle the successful sign-in here.
-    }
+  <!-- Google Sign-In button -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-    // Initialize the GoogleAuth object.
-    gapi.load('auth2', function() {
-      gapi.auth2.init({
-        client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com'
-      });
-    });
-  </script>
-  
-  
+  <!-- Button to sign out -->
+  <button onclick="signOut()">Sign out</button>
 </body>
-</html>
+</html
