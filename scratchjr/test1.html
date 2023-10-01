@@ -23,5 +23,14 @@
       });
     });
   </script>
+
+function onSignIn(googleUser) {
+  // Get the user's profile information.
+  var profile = googleUser.getBasicProfile();
+
+  // Display the user's name and email address.
+  document.getElementById('name').innerHTML = profile.getName();
+  document.getElementById('email').innerHTML = profile.getEmail();
+}
 </body>
 </html>
