@@ -1,16 +1,35 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-<title>Google Sign-In</title>
+  <title>Google Sign-In</title>
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script>
+    window.onload = function() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com',
+          scope: 'profile email'
+        });
+      });
+    };
+
+    function checkLoginStatus() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      if (auth2.isSignedIn.get()) {
+        // The user is logged in.
+      } else {
+        // The user is not logged in.
+      }
+    }
+  </script>
 </head>
 <body>
-<div id="g_id_onload"
-  data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
-  data-callback="onSignIn"
-  data-scope="profile email">
-</div>
-<div id="g_id_signin"></div>
-<script src="https://apis.google.com/js/platform.js?onload=g_id_onload"></script>
+  <h1>Google Sign-In</h1>
+
+  <a href="javascript:void(0)" id="signin-button"><img src="https://developers.google.com/identity/images/btn_google_signin_light.png" alt="Sign in with Google"></a>
+
+  <script>
+    checkLoginStatus();
+  </script>
 </body>
 </html>
