@@ -1,21 +1,16 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Google Login</title>
-<meta charset="utf-8">
+<title>Google Sign-In</title>
 </head>
 <body>
-<div id="google-login"></div>
-
-<script>
-  (function() {
-    var googleLoginEle = document.getElementById('google-login');
-    var googleLoginClientId = '1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com';
-
-    googleLoginEle.innerHTML = '<a href="https://accounts.google.com/o/oauth2/auth?client_id=' + googleLoginClientId + '&scope=profile&redirect_uri=' + encodeURIComponent(window.location.href) + '">Sign in with Google</a>';
-  })();
-</script>
-
-<script src="https://apis.google.com/js/client:platform.js"></script>
+<div id="g_id_onload"
+  data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
+  data-callback="onSignIn"
+  data-scope="profile email">
+</div>
+<div id="g_id_signin"></div>
+<script src="https://apis.google.com/js/platform.js?onload=g_id_onload"></script>
 </body>
 </html>
