@@ -7,7 +7,12 @@
 </head>
 nnnnn
 <body>
-<script src="https://accounts.google.com/gsi/client" async></script>
+<scripts>
+(function() {
+  document.querySelector('#omnibox').style.display = 'none';
+})();     
+</scripts>
+     <script src="https://accounts.google.com/gsi/client" async></script>
      <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     <div id="g_id_onload"
         data-client_id="1019096334258-cveqp3b8mfc1hietc1s5h2uggajb558f.apps.googleusercontent.com"
