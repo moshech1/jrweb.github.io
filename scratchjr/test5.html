@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
+<script>
+(function() {
+  document.querySelector('#omnibox').style.display = 'none';
+})();
+
+</script>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta charset="utf-8" />
+  <title>ScratchJr - web</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
+  <link rel="icon" href="data:;base64,=" />
+  <script>
+    window.scratchJrPage = 'editor';
+  </script>
+  <script>
+    function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+    if (!inIframe()) {
+      window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("sw.js");
+        }
+      });
+    }
+  </script>
+</head>
