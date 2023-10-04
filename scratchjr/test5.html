@@ -1,11 +1,6 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
-<script>
-(function() {
-  document.querySelector('#omnibox').style.display = 'none';
-})();
 
-</script>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,6 +10,12 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
   <link rel="icon" href="data:;base64,=" />
+ <script>
+(function() {
+  document.querySelector('#omnibox').style.display = 'none';
+})();
+
+</script>
   <script>
     window.scratchJrPage = 'editor';
   </script>
@@ -35,3 +36,23 @@
     }
   </script>
 </head>
+
+<body style="background: white">
+  <div class="frame" id="frame"></div>
+  <div class="libframe" id="libframe"></div>
+  <div class="paintframe" id="paintframe"></div>
+  <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?cb0e691d41e085efb8340939fb355270';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</body>
+
+</html>
