@@ -1,17 +1,86 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <script>  
+function openFullScreen(url) {
+  var element = document.createElement('div');
+  element.style.position = 'fixed';
+  element.style.top = 0;
+  element.style.left = 0;
+  element.style.width = '100%';
+  element.style.height = '100%';
+  element.style.zIndex = 1000;
+  element.style.backgroundColor = '#000';
 
-<head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Untitled 3</title>
-</head>
+  var iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.src = url;
+
+  element.appendChild(iframe);
+  document.body.appendChild(element);
+
+  element.addEventListener('click', function() {
+    element.parentNode.removeChild(element);
+  });
+}
+   </script>   
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
 <script>
-(function() {
-  document.querySelector('#omnibox').style.display = 'none';
-})();
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-X3HG3NKWG8');
 </script>
-<body>
+<head>
+   <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta charset="utf-8" />
+  <title>ScratchJr - web</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
+  <link rel="icon" href="data:;base64,=" />
+ 
+</script>
+  <script>
+    window.scratchJrPage = 'editor';
+  </script>
+  <script>
+    function inIframe() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+    if (!inIframe()) {
+      window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator) {
+          navigator.serviceWorker.register("sw.js");
+        }
+      });
+    }
+  </script>
+</head>
+
+<body style="background: white">
+  <div class="frame" id="frame"></div>
+  <div class="libframe" id="libframe"></div>
+  <div class="paintframe" id="paintframe"></div>
+  <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement('script');
+      hm.src = 'https://hm.baidu.com/hm.js?cb0e691d41e085efb8340939fb355270';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 </body>
 
