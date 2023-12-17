@@ -1,7 +1,46 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
+ 
+  <script>  
+function openFullScreen(url) {
+  var element = document.createElement('div');
+  element.style.position = 'fixed';
+  element.style.top = 0;
+  element.style.left = 0;
+  element.style.width = '100%';
+  element.style.height = '100%';
+  element.style.zIndex = 1000;
+  element.style.backgroundColor = '#000';
 
+  var iframe = document.createElement('iframe');
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.src = url;
+
+  element.appendChild(iframe);
+  document.body.appendChild(element);
+
+  element.addEventListener('click', function() {
+    element.parentNode.removeChild(element);
+  });
+}
+   </script>  
+<script language="javascript">
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
+ </script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X3HG3NKWG8');
+</script>
 <head>
+   <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta http-equiv="cache-control" content="no-cache" />
@@ -10,6 +49,8 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
   <link rel="icon" href="data:;base64,=" />
+ 
+</script>
   <script>
     window.scratchJrPage = 'editor';
   </script>
