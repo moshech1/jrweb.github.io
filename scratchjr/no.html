@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScratchJr - web</title>
+    <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
+    <style>
+        body {
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="frame" id="frame"></div>
+    <div class="libframe" id="libframe"></div>
+    <div class="paintframe" id="paintframe"></div>
+    
+    <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?cb0e691d41e085efb8340939fb355270';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</body>
+
+</html>
