@@ -12616,9 +12616,9 @@ googleFormBtn.innerText = "Coding Cards";
 
 // הגדרת סגנון הכפתור
 googleFormBtn.style.width = "60px";
-googleFormBtn.style.height = "53px";
+googleFormBtn.style.height = "54px";
 googleFormBtn.style.position = "relative";
-googleFormBtn.style.top = "-27px"; // העלאת הכפתור ב-10 פיקסלים
+googleFormBtn.style.top = "-26px"; // העלאת הכפתור ב-10 פיקסלים
 
 googleFormBtn.style.borderRadius = "10px"; // עיגול פינות הכפתור
 googleFormBtn.style.border = "0px solid #795548"; // גבול חום כהה
