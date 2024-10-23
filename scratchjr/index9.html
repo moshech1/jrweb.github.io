@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta charset="utf-8" />
+  <title>ScratchJr - web</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
+</head>
+<body style="background: white">
+  <div class="frame" id="frame"></div>
+  <div class="libframe" id="libframe"></div>
+  <div class="paintframe" id="paintframe"></div>
+  <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
+  <script type="text/javascript" src="index9.js"></script>
+</body>
+<script>
+  function openFullScreen(url) {
+    var element = document.createElement('div');
+    element.style.position = 'fixed';
+    element.style.top = 0;
+    element.style.left = 0;
+    element.style.width = '100%';
+    element.style.height = '100%';
+    element.style.zIndex = 1000;
+    element.style.backgroundColor = '#000';
+
+    var iframe = document.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.src = url;
+
+    element.appendChild(iframe);
+    document.body.appendChild(element);
+
+    element.addEventListener('click', function() {
+      element.parentNode.removeChild(element);
+    });
+  }
+
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X3HG3NKWG8');
+
+  window.scratchJrPage = 'editor';
+
+  function inIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return true;
+    }
+  }
+
+  if (!inIframe()) {
+    window.addEventListener("load", () => {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw1.js");
+      }
+    });
+  }
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
+</html>
