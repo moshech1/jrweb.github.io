@@ -19,39 +19,36 @@
   <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
   <link rel="icon" href="data:;base64,=" />
   <style>
-    body {
+    html, body {
       background: white;
       margin: 0;
       padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    body {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
     }
     
-    .container {
+    #content-container {
       width: 1260px;
       height: 850px;
       border: 2px dashed gray;
       position: relative;
-    }
-    
-    .frame, .libframe, .paintframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      overflow: hidden;
     }
   </style>
 </head>
-<body>
-  <div class="container">
+<body style="background: white">
+  <div id="content-container">
     <div class="frame" id="frame"></div>
     <div class="libframe" id="libframe"></div>
     <div class="paintframe" id="paintframe"></div>
   </div>
-  
+
   <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
   <script type="text/javascript" src="index3.js"></script>
  
