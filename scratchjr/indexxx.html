@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
-    <meta charset="utf-8" />
-    <title>ScratchJr - web</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
-    <link rel="icon" href="data:;base64,=" />
-    <style>
-        body {
-            background: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-        }
-        
-        #frame, #libframe, #paintframe {
-            position: relative;
-        }
-        
-        .main-container {
-            width: 1260px;
-            height: 850px;
-            border: 2px dashed gray;
-            background-color: white;
-            box-sizing: border-box;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-X3HG3NKWG8');
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HG3NKWG8');
+  </script>
+  <meta charset="utf-8" />
+  <title>ScratchJr - web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
+  <link rel="icon" href="data:;base64,=" />
+  <style>
+    body {
+      background: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 1260px;
+      height: 850px;
+      border: 2px dashed gray;
+      position: relative;
+    }
+    
+    .frame, .libframe, .paintframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <div class="main-container">
+  <div class="container">
     <div class="frame" id="frame"></div>
     <div class="libframe" id="libframe"></div>
     <div class="paintframe" id="paintframe"></div>
