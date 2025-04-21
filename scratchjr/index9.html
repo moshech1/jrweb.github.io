@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
@@ -20,19 +20,26 @@
   <link rel="icon" href="data:;base64,=" />
   <style>
     html, body {
-      overflow: hidden;
-      border: 0;
       margin: 0;
       padding: 0;
-      width: 100%;
+      overflow: hidden;
+    }
+    body {
+      background: white;
+      width: 1100px;
       height: 848px;
+      margin: 0 auto; /* Center horizontally */
+    }
+    .frame, .libframe, .paintframe {
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
-<body>
-  <div class="frame" id="frame" style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;"></div>
-  <div class="libframe" id="libframe" style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;"></div>
-  <div class="paintframe" id="paintframe" style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;"></div>
+<body style="background: white; width: 1100px; height: 848px">
+  <div class="frame" id="frame"></div>
+  <div class="libframe" id="libframe"></div>
+  <div class="paintframe" id="paintframe"></div>
   <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
   <script type="text/javascript" src="index3.js"></script>
  
@@ -60,10 +67,11 @@
     function openFullScreen(url) {
       var element = document.createElement('div');
       element.style.position = 'fixed';
-      element.style.top = 0;
-      element.style.left = 0;
-      element.style.width = '100%';
-      element.style.height = '100%';
+      element.style.top = '50%';
+      element.style.left = '50%';
+      element.style.width = '1100px';
+      element.style.height = '848px';
+      element.style.transform = 'translate(-50%, -50%)';
       element.style.zIndex = 1000;
       element.style.backgroundColor = '#000';
       var object = document.createElement('object');
