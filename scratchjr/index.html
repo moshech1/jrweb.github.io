@@ -1,78 +1,15 @@
+
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
-<head>
-    </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html>
+<body style="background-color:#F3F2EC;">
 
-  gtag('config', 'G-X3HG3NKWG8');
-</script>
-    <meta charset="utf-8" />
-    <title>ScratchJr - web</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
-    <link rel="icon" href="data:;base64,=" />
-</head>
-<body style="background: white">
-  <div class="frame" id="frame"></div>
-  <div class="libframe" id="libframe"></div>
-  <div class="paintframe" id="paintframe"></div>
-  <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
-  <script type="text/javascript" src="index3.js"></script>
- 
-  <script>
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
+<div style="justify-content: center; display: flex;">
+  <iframe scrolling="no" frameborder="no" clocktype="html5" 
+style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;" allow="autoplay; camera; microphone; xr-spatial-tracking" 
+ sandbox="allow-downloads allow-forms allow-pointer-lock allow-popups 
+          allow-same-origin allow-scripts allow-popups-to-escape-sandbox" 
+src="https://codejr.org/scratchjr/index1.html"></iframe>
+</div>
 
-    window.scratchJrPage = 'editor';
-
-    function inIframe() {
-        try {
-            return window.self !== window.top;
-        } catch (e) {
-            return true;
-        }
-    }
-    if (!inIframe()) {
-        window.addEventListener("load", () => {
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.register("sw.js");
-            }
-        });
-    }
-  </script>
-  <script>
-    function openFullScreen(url) {
-      var element = document.createElement('div');
-      element.style.position = 'fixed';
-      element.style.top = 0;
-      element.style.left = 0;
-      element.style.width = '100%';
-      element.style.height = '100%';
-      element.style.zIndex = 1000;
-      element.style.backgroundColor = '#000';
-
-      var object = document.createElement('object');
-      object.data = url;
-      object.style.width = '100%';
-      object.style.height = '100%';
-
-      element.appendChild(object);
-      document.body.appendChild(element);
-
-      element.addEventListener('click', function() {
-        element.parentNode.removeChild(element);
-      });
-    }
-  </script>
 </body>
 </html>
