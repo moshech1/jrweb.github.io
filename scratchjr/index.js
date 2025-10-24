@@ -12598,7 +12598,7 @@
             }
             ,
             Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
-                const t = [":שם הפרויקט"];
+                const t = ["project name"];
                 t && D.zipAndSaveCurrentProject(t, (function() {}
                 ))
             }
