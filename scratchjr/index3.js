@@ -12586,41 +12586,71 @@
             D.layoutLibrary(t)
         }
         static layoutFileBtns(e) {
-            var t = Object(y.newHTML)("div", "filebuttons", e)
-              , r = Object(y.newHTML)("span", "btn btn-open", t)
-              , n = Object(y.newHTML)("input", "open-file", r);
-            n.setAttribute("type", "file"),
-            n.setAttribute("accept", ".sjr"),
+            var t = Object(y.newHTML)("div", "filebuttons", e);
+            var r = Object(y.newHTML)("span", "btn btn-open", t);
+            var n = Object(y.newHTML)("input", "open-file", r);
+            n.setAttribute("type", "file");
+            n.setAttribute("accept", ".sjr");
             n.onchange = function(e) {
                 const t = n.files;
-                t.length && D.dealwithUploadedFile(t[0]),
-                n.value = null
-            }
-            ,
-            Object(y.newHTML)("button", "btn btn-save", t).onpointerup = function(e) {
-                const t = ["project name"];
-                t && D.zipAndSaveCurrentProject(t, (function() {}
-                ))
-            }
-            ,
-            this.gnSave2CloudButton(t)
+                t.length && D.dealwithUploadedFile(t[0]);
+                n.value = null;
+            };
+             var saveButton = Object(y.newHTML)("button", "btn btn-save", t);
+            saveButton.onpointerup = function(e) {
+                const t = [":project name"];
+                t && D.zipAndSaveCurrentProject(t, function() {});
+            };
+            
+            this.gnSave2CloudButton(t);
+            
+            // Creating and adding the Coding Cards button
+            var googleFormBtn = Object(y.newHTML)("button", "btn btn-google-form", t);
+            googleFormBtn.onclick = function() {
+                window.open("https://moshe310.wixsite.com/codejrenglish");
+            };
+            googleFormBtn.innerText = "Coding Cards";
+            
+            // Styling all buttons consistently
+            var allButtons = t.querySelectorAll('.btn');
+            allButtons.forEach(function(button) {
+                button.style.width = "60px";
+                button.style.height = "54px";
+                button.style.borderRadius = "10px";
+                button.style.border = "0px solid #795548";
+                button.style.backgroundColor = "#9C8A7B";
+                button.style.color = "#ffffff";
+                button.style.margin = "0 5px"; // Add some margin between buttons
+                button.style.verticalAlign = "top"; // Align buttons to the top
+            });
         }
+        
         static gnSave2CloudButton(e) {
-            a.a.parse(location.search).s && (Object(y.newHTML)("button", "btn btn-submit-save", e).onpointerup = function(e) {
-                D.zipAndSubmitCurrentProject("scratchjr", (function() {}
-                ))
+            if (a.a.parse(location.search).s) {
+                var submitSaveBtn = Object(y.newHTML)("button", "btn btn-submit-save", e);
+                submitSaveBtn.onpointerup = function(e) {
+                    D.zipAndSubmitCurrentProject("scratchjr", function() {});
+                };
+                // Apply the same styling to this button
+                submitSaveBtn.style.width = "60px";
+                submitSaveBtn.style.height = "54px";
+                submitSaveBtn.style.borderRadius = "10px";
+                submitSaveBtn.style.border = "0px solid #795548";
+                submitSaveBtn.style.backgroundColor = "#9C8A7B";
+                submitSaveBtn.style.color = "#ffffff";
+                submitSaveBtn.style.margin = "0 5px";
+                submitSaveBtn.style.verticalAlign = "top";
             }
-            )
         }
+        
         static dealwithUploadedFile(e) {
             const t = new FileReader;
-            t.readAsDataURL(e),
+            t.readAsDataURL(e);
             t.onload = function() {
-                S.a.tempSaveProject(t.result.split(",")[1]).then(()=>{
-                    window.location.reload()
-                }
-                )
-            }
+                S.a.tempSaveProject(t.result.split(",")[1]).then(() => {
+                    window.location.reload();
+                });
+            };
         }
         static middleSection() {
             var e = Object(y.newHTML)("div", "blockspalette", y.frame);
