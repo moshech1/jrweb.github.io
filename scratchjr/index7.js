@@ -12668,6 +12668,16 @@ static dealwithUploadedFile(e) {
         });
     };
 }
+        
+        static dealwithUploadedFile(e) {
+            const t = new FileReader;
+            t.readAsDataURL(e);
+            t.onload = function() {
+                S.a.tempSaveProject(t.result.split(",")[1]).then(() => {
+                    window.location.reload();
+                });
+            };
+        }
         static middleSection() {
             var e = Object(y.newHTML)("div", "blockspalette", y.frame);
             e.setAttribute("id", "blockspalette"),
