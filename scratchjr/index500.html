@@ -1,99 +1,118 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink">
+<html>
 <head>
-    <!-- הסקריפט הריק שהיה כאן נמחק, נראה כשגיאת העתקה -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-X3HG3NKWG8');
-    </script>
-    <meta charset="utf-8" />
-    <title>ScratchJr - web</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
-    <link rel="manifest" href="manifest.webmanifest">
-    <link rel="apple-touch-icon" href="pwa_static/assets/scratchjr-apple-logo.png">
-    <link rel="icon" href="data:;base64,=" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3HG3NKWG8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X3HG3NKWG8');
+  </script>
+  <meta name="description" content="With ScratchJr for web, young children (ages 5-7) can program their own interactive stories and games. In the process, they learn to solve problems, design projects,">
+  <title>ScratchJr for web - Programming for Young Children (Ages 5-7)</title>
+  <link rel="icon" type="image/x-icon" href="https://codejr.org/scratchjr/assets/ui/favicon.ico">
 
-    <!-- *** התוספת: הגדרות CSS לגודל הרצוי *** -->
-    <style>
-        html, body {
-            height: 100%; /* מוודא שה-body תופס את כל גובה החלון */
-            margin: 0; /* מוריד רווחים ברירת מחדל */
-            padding: 0; /* מוריד ריפוד ברירת מחדל */
-            overflow: hidden; /* מונע גלילה אם התוכן של #frame חורג במקצת */
-        }
-        #frame {
-            width: 100%; /* רוחב 100% */
-            height: 848px; /* גובה 848 פיקסלים */
-            /* אפשר להוסיף מאפיינים נוספים אם צריך, לדוגמה: */
-            /* overflow: auto; /* מאפשר גלילה בתוך ה-frame אם התוכן גדול יותר */
-            /* border: 1px solid black; /* כדי לראות את גבולות ה-div בזמן פיתוח */
-        }
-        /* אם גם האלמנטים האחרים צריכים הגדרת גודל, אפשר להוסיף כאן */
-        /* #libframe { ... } */
-        /* #paintframe { ... } */
-    </style>
-    <!-- *** סוף התוספת *** -->
+  <!-- עיצוב החלון הקופץ -->
+  <style>
+    /* רקע כהה ומטושטש מאחורי החלון */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: Arial, sans-serif;
+    }
 
+    /* תיבת ההודעה */
+    .popup-box {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      position: relative;
+    }
+
+    .popup-box h2 {
+      margin-top: 0;
+      color: #333333;
+      font-size: 24px;
+    }
+
+    .popup-box p {
+      color: #555555;
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 15px 0 25px 0;
+    }
+
+    /* כפתור מעבר לגרסה החדשה */
+    .popup-btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.2s ease;
+    }
+
+    .popup-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* כפתור סגירה (איקס) */
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #333;
+    }
+  </style>
 </head>
-<body style="background: white"> <!-- אפשר להסיר את ה-style מכאן אם רוצים שהכל יהיה ב-CSS -->
-    <div class="frame" id="frame"></div>
-    <div class="libframe" id="libframe"></div>
-    <div class="paintframe" id="paintframe"></div>
-    <script type="text/javascript" src="vendors/snap/snap.svg-min.js"></script>
-    <script type="text/javascript" src="index3.js"></script>
-    <script>
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
+<body style="background-color:#F3F2EC;">
 
-        window.scratchJrPage = 'editor';
+  <!-- רכיב החלון הקופץ -->
+  <div id="noticePopup" class="popup-overlay">
+    <div class="popup-box">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>New Version Available!</h2>
+      <p>We have launched a new version that will replace the current version in early August.</p>
+      <a href="https://moshe1ch-kidi.github.io/codejrkids/" class="popup-btn" target="_blank">Click here for the new version</a>
+    </div>
+  </div>
 
-        function inIframe() {
-            try {
-                return window.self !== window.top;
-            } catch (e) {
-                return true;
-            }
-        }
-        if (!inIframe()) {
-            window.addEventListener("load", () => {
-                if ("serviceWorker" in navigator) {
-                    navigator.serviceWorker.register("sw.js");
-                }
-            });
-        }
-    </script>
-    <script>
-        // הפונקציה הזו כנראה לא קשורה לגודל ההתחלתי, משאירים אותה כפי שהיא
-        function openFullScreen(url) {
-            var element = document.createElement('div');
-            element.style.position = 'fixed';
-            element.style.top = 0;
-            element.style.left = 0;
-            element.style.width = '100%';
-            element.style.height = '100%';
-            element.style.zIndex = 1000;
-            element.style.backgroundColor = '#000';
+  <div style="justify-content: center; display: flex;">
+    <iframe scrolling="no" frameborder="no" clocktype="html5" 
+      style="overflow:hidden;border:0;margin:0;padding:0;width:100%;height:848px;" allow="autoplay; camera; microphone; xr-spatial-tracking" 
+      sandbox="allow-downloads allow-forms allow-pointer-lock allow-popups 
+              allow-same-origin allow-scripts allow-popups-to-escape-sandbox" 
+      src="https://codejr.org/scratchjr/index1.html"></iframe>
+  </div>
 
-            var object = document.createElement('object');
-            object.data = url;
-            object.style.width = '100%';
-            object.style.height = '100%';
-
-            element.appendChild(object);
-            document.body.appendChild(element);
-
-            element.addEventListener('click', function() {
-                element.parentNode.removeChild(element);
-            });
-        }
-    </script>
+  <!-- סקריפט לסגירת החלון -->
+  <script>
+    function closePopup() {
+      document.getElementById('noticePopup').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
